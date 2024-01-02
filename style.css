@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: rgba(226, 313, 201, 0.918);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    height: 60%;
+    width: 40%;
+    background-color: aqua;
+    padding: 15px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+h2{
+    color: red;
+    text-align: center;
+    font-size: 36px;
+}
+
+h3{
+    margin: 5px;
+}
+
+.my_tasks{
+    display: flex;
+    flex-direction: column;
+}
+
+.task{
+    padding: 10px;
+    border-radius: 7px;
+    width: 80%;
+    margin: 5px;
+}
+
+::placeholder{
+    font-size: 15px;
+}
+
+.btn{
+    height: 9%;
+    width: 25%;
+    border-radius: 10px;
+    border-radius: 1.6px solid black;
+    margin: 5px;
+    text-align: center;
+    background-color: burlywood;
+    cursor: pointer;
+}
+
+label{
+    cursor: pointer;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.box{
+    height: 20%;
+    background-color: rgb(239, 239, 240);
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+i{
+    float: right;
+    cursor: pointer;
+}
+
+.strike{
+    text-decoration: line-through;
+}
