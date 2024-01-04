@@ -48,7 +48,7 @@ h3{
     font-size: 15px;
 }
 
-.btn{
+.btn,.btns{
     height: 9%;
     width: 25%;
     border-radius: 10px;
@@ -57,6 +57,10 @@ h3{
     text-align: center;
     background-color: burlywood;
     cursor: pointer;
+}
+
+.btns{
+    background-color: blue;
 }
 
 label{
