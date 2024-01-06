@@ -54,10 +54,8 @@ function addListItems(text,idx){
             let label = document.querySelector(`#label_`+i);
             if(box.checked==true){
                 label.classList.add("strike");
-                div_containar_array[i]["isChecked"]=true;
             }else{
                 label.classList.remove("strike");
-                div_containar_array[i]["isChecked"]=false;
             }
         })
     })
