@@ -70,7 +70,6 @@ function addListItems(text,idx){
             let div_box=document.querySelector(`#div_`+j);
             div_containar_array.splice(j,1);
             div_box.remove();
-            console.log(div_containar_array);
         })
     })
 }
@@ -89,7 +88,7 @@ if(local_array){
         if(val["isChecked"]){
             let label_text = document.querySelector(`#label_`+uniqueId);
             let check_box_status=document.querySelector(`#checkbox_${uniqueId}`);
-            check_box_status.checked=true;
+            check_box_status.checked=val["isChecked"];
             label_text.classList.add("strike");
         }
         uniqueId++;
