@@ -2,7 +2,6 @@ let body=document.querySelector(".my_tasks");
 let uniqueId=0;
 
 let Todo_Container_box=document.querySelector(".container");
-let save_button;
 
 let div_containar_array=[];
 
@@ -32,15 +31,20 @@ function addListItems(text,idx){
     icon.id=`id_${idx}`;
     icon.classList.add("icon","fa","fa-solid","fa-trash");
     div.appendChild(icon);
-
-
+    
+    
     if(idx==0){
-        let del_button=document.createElement('button');
-        del_button.classList.add('btns');
-        del_button.textContent="Save";
-        Todo_Container_box.appendChild(del_button);
+        let save_button;
+        save_button=document.createElement('button');
+        save_button.classList.add('btns');
+        save_button.textContent="Save";
+        Todo_Container_box.appendChild(save_button);
 
-        save_button=del_button;
+        save_button.addEventListener("click",()=>{
+            let store=JSON.stringify(div_containar_array);
+            localStorage.setItem("local_storage",store);
+            alert("Changes Saved");
+        })
     }
 
     let check_box=document.querySelectorAll(".input_box");
@@ -48,10 +52,11 @@ function addListItems(text,idx){
         box.addEventListener('click',()=>{
             let i=box.id.charAt(box.id.length-1);
             let label = document.querySelector(`#label_`+i);
-            label.classList.toggle("strike");
             if(box.checked==true){
+                label.classList.add("strike");
                 div_containar_array[i]["isChecked"]=true;
             }else{
+                label.classList.remove("strike");
                 div_containar_array[i]["isChecked"]=false;
             }
         })
@@ -67,12 +72,6 @@ function addListItems(text,idx){
             div_containar_array.splice(j,1);
         })
     })
-
-    save_button.addEventListener("click",()=>{
-        let store=JSON.stringify(div_containar_array);
-        localStorage.setItem("local_storage",store);
-    })
-
 }
 
 

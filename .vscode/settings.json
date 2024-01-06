@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/workspaces/Todo"
+    "cmake.sourceDirectory": "/workspaces/Todo",
+    "livePreview.defaultPreviewPath": "/index.html"
 }
