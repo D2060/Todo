@@ -54,8 +54,10 @@ function addListItems(text,idx){
             let label = document.querySelector(`#label_`+i);
             if(box.checked==true){
                 label.classList.add("strike");
+                div_containar_array[i]['isChecked']=true;
             }else{
                 label.classList.remove("strike");
+                div_containar_array[i]['isChecked']=false;
             }
         })
     })
@@ -83,10 +85,10 @@ if(local_array){
     div_containar_array=local_array;
     local_array.forEach((val,idx)=>{
         addListItems(val['Task'],uniqueId);
+        let check_box_status=document.querySelector(`#checkbox_${uniqueId}`);
+        check_box_status.checked=val['isChecked'];
         if(val["isChecked"]){
             let label_text = document.querySelector(`#label_`+uniqueId);
-            let check_box_status=document.querySelector(`#checkbox_${uniqueId}`);
-            check_box_status.checked=val["isChecked"];
             label_text.classList.add("strike");
         }
         uniqueId++;
