@@ -57,8 +57,8 @@ h3{
 }
 
 .btn,.btns{
-    height: 9%;
-    width: 25%;
+    height: 30px;
+    width: 85px;
     border-radius: 10px;
     border-radius: 1.6px solid black;
     margin: 5px;

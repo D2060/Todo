@@ -68,8 +68,9 @@ function addListItems(text,idx){
         val.addEventListener('click',()=>{
             let j=val.id.charAt(val.id.length - 1);
             let div_box=document.querySelector(`#div_`+j);
-            div_box.remove();
             div_containar_array.splice(j,1);
+            div_box.remove();
+            console.log(div_containar_array);
         })
     })
 }
