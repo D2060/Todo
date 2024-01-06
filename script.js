@@ -16,7 +16,7 @@ function addListItems(text,idx){
     
     let input=document.createElement("input");
     input.type="checkbox";
-    input.id=id;
+    input.id=`checkbox_${idx}`;
     div.appendChild(input);
     input.classList.add("input_box");
     input.style.cursor="pointer";
@@ -24,7 +24,7 @@ function addListItems(text,idx){
     
     let label=document.createElement("label");
     label.id=`label_${idx}`;
-    label.setAttribute("for",id);
+    label.setAttribute("for",`checkbox_${idx}`);
     label.textContent=text;
     div.appendChild(label);
     
@@ -88,6 +88,8 @@ if(local_array){
         addListItems(val['Task'],uniqueId);
         if(val["isChecked"]){
             let label_text = document.querySelector(`#label_`+uniqueId);
+            let check_box_status=document.querySelector(`#checkbox_${uniqueId}`);
+            check_box_status.checked=true;
             label_text.classList.add("strike");
         }
         uniqueId++;
@@ -114,18 +116,3 @@ input_ele.addEventListener('keydown',function(Event){
         addListItemsToBody();
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
