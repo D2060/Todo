@@ -4,6 +4,8 @@ let uniqueId=0;
 let Todo_Container_box=document.querySelector(".container");
 let save_button;
 
+let div_containar_array=[];
+
 function addListItems(text,idx){
     
     id=`box_${idx}`;
@@ -46,10 +48,11 @@ function addListItems(text,idx){
         box.addEventListener('click',()=>{
             let i=box.id.charAt(box.id.length-1);
             let label = document.querySelector(`#label_`+i);
+            label.classList.toggle("strike");
             if(box.checked==true){
-                label.classList.add("strike");
+                div_containar_array[i]["isChecked"]=true;
             }else{
-                label.classList.remove('strike');
+                div_containar_array[i]["isChecked"]=false;
             }
         })
     })
@@ -61,13 +64,14 @@ function addListItems(text,idx){
             let j=val.id.charAt(val.id.length - 1);
             let div_box=document.querySelector(`#div_`+j);
             div_box.remove();
+            div_containar_array.splice(j,1);
         })
     })
 
-    // save_button.addEventListener("click",()=>{
-    //     let store=document.querySelectorAll('.box');
-    //     localStorage.setItem("local_storage",JSON.stringify(store));
-    // })
+    save_button.addEventListener("click",()=>{
+        let store=JSON.stringify(div_containar_array);
+        localStorage.setItem("local_storage",store);
+    })
 
 }
 
@@ -76,12 +80,31 @@ function addListItems(text,idx){
 let btn=document.querySelector(".btn");
 let input_ele=document.querySelector('.task');
 
+let local_array_string=localStorage.getItem("local_storage");
+let local_array=JSON.parse(local_array_string);
+if(local_array){
+    div_containar_array=local_array;
+    local_array.forEach((val,idx)=>{
+        addListItems(val['Task'],uniqueId);
+        if(val["isChecked"]){
+            let label_text = document.querySelector(`#label_`+uniqueId);
+            label_text.classList.add("strike");
+        }
+        uniqueId++;
+    })
+}
+
+
 function addListItemsToBody(){
+    let div_containar_object={};
     if (input_ele.value){
+        div_containar_object["Task"]=input_ele.value;
+        div_containar_object["isChecked"]=false;
         addListItems(input_ele.value,uniqueId++);        
     }else{
         alert("Please Enter a Task to Proceed");
     }
+    div_containar_array.push(div_containar_object);
     input_ele.value='';
 }
 
