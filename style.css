@@ -17,7 +17,6 @@ body{
     height: 60%;
     width: 40%;
     background-color: aqua;
-    padding: 15px;
     border: 1.5px solid black;
     border-radius: 5px;
     display: block;
@@ -32,6 +31,9 @@ h2{
     color: red;
     text-align: center;
     font-size: 36px;
+    position: sticky;
+    top: 0%;
+    background-color: aqua;
 }
 
 h3{
